@@ -1,13 +1,18 @@
 from django.shortcuts import render
+from django.views.generic import ListView, DetailView
 from django.views.generic.base import View
 from .models import Project
 
-class Project_view(View):
-    def get(self, request):
-        projects = Project.objects.all()
-        return render(request, "posts/projects_list.html", {"project_list":projects})
+class Project_view(ListView):
+    model = Project
+    queryset = Project.objects.filter(draft=False)
+    template_name = "posts/projects_list.html"
 
-class Project_Detail(View):
-    def get(self, request, slug):
-        project = Project.objects.get(url=slug)
-        return render(request, "posts/project_info.html", {"project":project})
+    # def get(self, request):
+    #     projects = Project.objects.all()
+    #     return render(request, "posts/projects_list.html", {"project_list":projects})
+
+class Project_Detail(DetailView):
+    model = Project
+    slug_field = "url"
+    template_name =  "posts/project_info.html"
