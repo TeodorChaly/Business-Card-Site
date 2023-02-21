@@ -23,9 +23,13 @@
     {% for project in project_list%}
     <section style="height: auto;margin-top: 50px;">
         <div>
+            <a href="{{ project.get_absolute_url }}">{{project.title}}</a>
             <h2>{{project.title}}</h2>
             <h5>{{project.text}}</h5>
-            <button class="btn btn-primary" type="button">View more ...</button>
+            <a href="{{ project.get_absolute_url }}">
+                <button class="btn btn-primary" type="button">View more ...</button>
+            </a>
+
         </div>
     </section>
     {% endfor %}

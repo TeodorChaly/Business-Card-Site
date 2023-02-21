@@ -8,6 +8,6 @@ class Project_view(View):
         return render(request, "posts/projects_list.html", {"project_list":projects})
 
 class Project_Detail(View):
-    def get(self, request, pk):
-        project = Project.objects.get(id=pk)
+    def get(self, request, slug):
+        project = Project.objects.get(url=slug)
         return render(request, "posts/project_info.html", {"project":project})
