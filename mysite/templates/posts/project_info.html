@@ -16,15 +16,10 @@
 		<h3>{{project.text}}</h3>
 		<h4>{{project.date}}</h4>
 		<h4>{{project.image}}</h4>
-		<p>
-			<h1>Pro</h1>
-			{% for image in project.projectimages_set.all %}
-				<h1>1</h1>
+		{% for img in project.projectimages_set.all %}
+			<img src="/media/{{img.image}} " alt="{{img.description}}" width="auto" height="256px"/>
 
-				<h1>{{image.image.url}}</h1>
-				<img src="{{ image.image.url }}" alt="{{ image.description }}"> width="256px" height="256px" />
-			{% endfor %}
-		</p>
+		{% endfor %}
 
 	</div>
 {%endblock info%}
