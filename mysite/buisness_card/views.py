@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView
 from django.views.generic.base import View
-from .models import Project
+from .models import Project, QuestionsAnswer
 
 class Project_view(ListView):
     model = Project
@@ -16,3 +16,8 @@ class Project_Detail(DetailView):
     model = Project
     slug_field = "url"
     template_name =  "posts/project_info.html"
+
+class Question_Answer(View):
+    def get(self, request):
+        quest_answr = QuestionsAnswer.objects.all()
+        return render(request, "posts/question_answer.html", {"question_answer":quest_answr})

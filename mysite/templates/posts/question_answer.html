@@ -1,0 +1,16 @@
+{%extends 'posts/base.html'%}
+{% load static %}
+
+{% block content %}
+    <section>
+
+        <h1>FAQ</h1>
+            {% for faq in question_answer%}
+            <div>
+                <h2>{{faq.title}}</h2>
+                <h5>{{faq.description}}</h5>
+
+            </div>
+            {% endfor %}
+    </section>
+{% endblock content %}

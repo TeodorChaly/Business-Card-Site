@@ -13,7 +13,7 @@
 	<h1>{{project.title}}</h1>
 
 	<div >
-		<h3>{{project.text}}</h3>
+		<h3>{{project.text|safe}}</h3>
 		<h4>{{project.date}}</h4>
 		<h4>{{project.image}}</h4>
 		{% for img in project.projectimages_set.all %}

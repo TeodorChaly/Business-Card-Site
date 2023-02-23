@@ -8,7 +8,7 @@
         <div>
             <a href="{{ project.get_absolute_url }}">{{project.title}}</a>
             <h2>{{project.title}}</h2>
-            <h5>{{project.text}}</h5>
+            <h5>{{project.text|safe}}</h5>
             <a href="{{ project.get_absolute_url }}">
                 <button class="btn btn-primary" type="button">View more ...</button>
             </a>
