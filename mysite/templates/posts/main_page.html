@@ -1,0 +1,26 @@
+{%extends 'posts/base.html '%}
+{%load static%}
+
+{% block head%}
+	<title>Main page</title>
+	<link rel="stylesheet" href="{% static  '/assets/bootstrap/css/bootstrap.min.css'%}">
+{% endblock head%}
+
+{%block info%}
+<h1>123</h1>
+<h3>Projects</h3>
+{%for content in content_one%}
+	<h5>{{content.title}}</h5>
+	<h6>{{content.text|safe}}</h6>
+	<a href="{{ content.get_absolute_url }}">View more...</a>
+{%endfor%}
+
+<h3>FAQ</h3>
+{%for FAQ in content_two%}
+	<h5>{{FAQ.title}}</h5>
+	<h6>{{FAQ.description|safe}}</h6>
+{%endfor%}
+<a href="{% url 'question_answer' %}">FAQ</a>
+
+
+{%endblock info%}

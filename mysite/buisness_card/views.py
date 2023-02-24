@@ -21,3 +21,10 @@ class Question_Answer(View):
     def get(self, request):
         quest_answr = QuestionsAnswer.objects.all()
         return render(request, "posts/question_answer.html", {"question_answer":quest_answr})
+
+
+class Main_Page_view(View):
+    def get(self, request):
+        content_one = Project.objects.order_by("-id")[:3]
+        content_two = QuestionsAnswer.objects.order_by("-id")[:1]
+        return render(request, "posts/main_page.html", {"content_one":content_one,"content_two":content_two, })
