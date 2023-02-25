@@ -1,15 +1,15 @@
 <nav class="navbar navbar-light navbar-expand-md fixed-top text-center">
-    <div class="container-fluid"><a class="navbar-brand" href="#">Brand</a>
+    <div class="container-fluid"><a class="navbar-brand" href="{% url 'main_page' %}">Brand</a>
         <button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span
                 class="navbar-toggler-icon"></span></button>
         <div class="collapse navbar-collapse d-lg-flex justify-content-lg-center align-items-lg-center" id="navcol-1">
             {% with request.resolver_match.url_name as url_name %}
             <ul class="navbar-nav">
 
-                <li class="nav-item"><a class="nav-link {% if url_name == 'project_detail' %}active{% endif %}" href="{% url 'project_list' %}">Project</a></li>
+                <li class="nav-item"><a class="nav-link {% if url_name == 'project_list' %}active{% endif %}" href="{% url 'project_list' %}">Project</a></li>
                 <li class="nav-item"><a class="nav-link {% if url_name == 'question_answer' %}active{% endif %}" href="{% url 'question_answer' %}">Q&A</a></li>
-
-                <li class="nav-item"><a class="nav-link {% if url_name == 'contact' %}active{% endif %}" href="#">Rieviews</a></li>
+                <li class="nav-item"><a class="nav-link {% if url_name == 'review_list' %}active{% endif %}" href="{% url 'review_list' %}">Reviews</a></li>
+                <li class="nav-item"><a class="nav-link {% if url_name == 'add_review' %}active{% endif %}" href="{% url 'add_review' %}">Add review</a></li>
 
             </ul>
             {% endwith %}

@@ -1,0 +1,20 @@
+{%extends 'posts/base.html'%}
+{% load static %}
+{% block head%}
+<title>Reviews</title>
+{% endblock head%}
+
+{% block content %}
+
+    {% for review in reviews%}
+    <section style="height: auto;margin-top: 50px;">
+        <div>
+            <h2>{{review.name}}</h2>
+            <h6>{{review.email}}</h6>
+            <h3>{{review.text}}</h3>
+        </div>
+
+    </section>
+    {% endfor %}
+    <script src="{% static 'assets/bootstrap/js/bootstrap.min.js'%}"></script>
+{% endblock content %}

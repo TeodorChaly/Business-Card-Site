@@ -1,0 +1,12 @@
+{% extends 'posts/base.html' %}
+
+{% block content %}
+<section style="height: auto;margin-top: 50px;">
+    <h1>Review</h1>
+    <form action="{% url 'add_review' %}" method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Add</button>
+    </form>
+</section>
+{% endblock %}

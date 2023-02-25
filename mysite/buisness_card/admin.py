@@ -22,13 +22,14 @@ class ProjectAdmin(admin.ModelAdmin):
 
 @admin.register(QuestionsAnswer)
 class QuestionsAnswerAdmin(admin.ModelAdmin):
-    list_display = ("id",)
-    list_display_links = ("id",)
+    list_display = ("id","title")
+    list_display_links = ("id","title")
 
 @admin.register(Reviews)
 class ReviewsAdmin(admin.ModelAdmin):
-    list_display = ("id",)
-    list_display_links = ("id",)
+    list_display = ("id", "name", "email")
+    list_display_links = ("id", "name")
+    readonly_fields = ("email",)
 
 @admin.register(ProjectImages)
 class ProjectImagesAdmin(admin.ModelAdmin):
