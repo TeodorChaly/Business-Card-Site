@@ -11,9 +11,10 @@
 	<h3>Projects</h3>
 	{%for content in content_one%}
 		<h5>{{content.title}}</h5>
-		<h6>{{content.text|safe}}</h6>
+		<h6>{{content.text|safe|truncatewords:40}}</h6>
 		<a href="{{ content.get_absolute_url }}">View more...</a>
 	{%endfor%}
+	<h6><a href="{% url 'project_list' %}">Projects</a></h6>
 	<h6>------------------------</h6>
 
 	<h3>FAQ</h3>
@@ -22,6 +23,16 @@
 		<h6>{{FAQ.description|safe}}</h6>
 	{%endfor%}
 	<a href="{% url 'question_answer' %}">FAQ</a>
+
+		<h6>------------------------</h6>
+
+	<h3>Reviews</h3>
+	{%for review in content_three%}
+		<h5>@{{review.name}}</h5>
+		<h6>- {{review.text|safe|truncatewords:3}}</h6>
+	{%endfor%}
+	<a href="{% url 'review_list' %}">Reviews</a>
+
 </section>
 
 {%endblock info%}

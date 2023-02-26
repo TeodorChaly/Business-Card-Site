@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'ckeditor',
     'ckeditor_uploader',
     'buisness_card',
+    'python_code',
 ]
 
 MIDDLEWARE = [

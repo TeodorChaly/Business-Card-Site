@@ -44,6 +44,7 @@ class Main_Page_view(View):
     def get(self, request):
         content_one = Project.objects.order_by("-id")[:2]
         content_two = QuestionsAnswer.objects.order_by("-id")[:3]
-        return render(request, "posts/main_page.html", {"content_one":content_one,"content_two":content_two, })
+        content_three = Reviews.objects.order_by("-id")[:3]
+        return render(request, "posts/main_page.html", {"content_one":content_one,"content_two":content_two,"content_three":content_three })
 
 
