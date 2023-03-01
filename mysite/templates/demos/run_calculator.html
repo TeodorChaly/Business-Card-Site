@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <section style="height: auto;margin-top: 50px;">
+
+    <h1>Run Calculator</h1>
+    {% if message %}
+        <p>{{ message }}</p>
+    {% endif %}
+
+    <form method="post">
+        {% csrf_token %}
+        <label for="num_one">Первое число:</label>
+        <input type="number" name="num_one" id="num_one" required>
+        <br>
+        <label for="num_two">Второе число:</label>
+        <input type="number" name="num_two" id="num_two" required>
+        <br>
+        <label for="operation">Операция:</label>
+        <select name="operation" id="operation" required>
+            <option value="+">Сложение</option>
+            <option value="-">Вычитание</option>
+            <option value="*">Умножение</option>
+            <option value="/">Деление</option>
+        </select>
+        <br>
+        <button type="submit">Вычислить</button>
+    </form>
+    {% if result %}
+    <p>Результат: {{ result }}</p>
+    {% endif %}
+    </section>
+{% endblock %}

@@ -1,0 +1,17 @@
+{%extends 'posts/base.html'%}
+{%load static%}
+
+{% block head%}
+	<title>Main page</title>
+	<link rel="stylesheet" href="{% static  '/assets/bootstrap/css/bootstrap.min.css'%}">
+{% endblock head%}
+
+{%block info%}
+<section style="height: auto;margin-top: 50px;">
+	<h3>Demos</h3>
+	<a href="{% url 'run_scraping' %}">{Demo}</a>
+	<a href="{% url 'run_calculator' %}">{Demo 2}</a>
+
+</section>
+
+{%endblock info%}

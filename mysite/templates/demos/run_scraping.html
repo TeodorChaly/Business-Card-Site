@@ -9,7 +9,11 @@
     {% endif %}
     <form method="POST">
         {% csrf_token %}
+        <input type="text" name="input_text" placeholder="Enter Text">
         <button type="submit">Run Scraping</button>
     </form>
+    {% if result %}
+        <p>{{ result }}</p>
+    {% endif %}
     </section>
 {% endblock %}
