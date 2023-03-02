@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     'ckeditor_uploader',
     'buisness_card',
     'python_code',
+    'registration',
+
 ]
 
 MIDDLEWARE = [
@@ -200,3 +202,11 @@ CKEDITOR_CONFIGS = {
         ]),
     }
 }
+#
+#
+# SITE_ID = 1
+#
+# AUTHENTICATION_BACKENDS = (
+#     'django.contrib.auth.backends.ModelBackend',
+#     'allauth.account.auth_backends.AuthenticationBackend',
+# )

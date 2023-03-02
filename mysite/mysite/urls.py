@@ -23,6 +23,7 @@ urlpatterns = [
     path('', include("buisness_card.urls")),
     path('ckeditor/', include('ckeditor_uploader.urls')),
     path('demos/', include('python_code.urls')),
+    path('registration/', include('registration.urls')),
 ]
 
 if settings.DEBUG:

@@ -24,7 +24,7 @@
 	{%endfor%}
 	<a href="{% url 'question_answer' %}">FAQ</a>
 
-		<h6>------------------------</h6>
+	<h6>------------------------</h6>
 
 	<h3>Reviews</h3>
 	{%for review in content_three%}
@@ -32,6 +32,13 @@
 		<h6>- {{review.text|safe|truncatewords:3}}</h6>
 	{%endfor%}
 	<a href="{% url 'review_list' %}">Reviews</a>
+
+	<h6>------------------------</h6>
+
+	<h3>Demos</h3>
+	<a href="{% url 'run_scraping' %}">Run demo scraping</a>
+	<a href="{% url 'run_calculator' %}">Run demo calculator</a>
+	<a href="{% url 'demos_list' %}">View more demos</a>
 
 </section>
 
