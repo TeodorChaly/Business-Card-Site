@@ -11,12 +11,12 @@
                 <li class="nav-item"><a class="nav-link {% if url_name == 'review_list' %}active{% endif %}" href="{% url 'review_list' %}">Reviews</a></li>
                 <li class="nav-item"><a class="nav-link {% if url_name == 'add_review' %}active{% endif %}" href="{% url 'add_review' %}">Add review</a></li>
                 <li class="nav-item"><a class="nav-link {% if url_name == 'demos_list' %}active{% endif %}" href="{% url 'demos_list' %}">Demo</a></li>
-                <li class="nav-item"><a class="nav-link {% if url_name == 'run_scraping' or url_name == 'run_calculator' %}active{% endif %}" href="{% if url_name == 'run_scraping' or url_name == 'run_calculator' %}{% else %}{% url 'demos_list' %}{% endif %}">Try project</a></li>
                 {% if user.is_authenticated %}
-                <li class="nav-item"><a href="{% url 'logout' %}">Logout</a></li>
+                    <li class="nav-item"><a href="{% url 'logout' %}">Logout</a></li>
+                    <li class="nav-item"><p>{{ user.username }}!</p></li>
                 {% else %}
-                <li class="nav-item"><a href="{% url 'login' %}">Login</a></li>
-                <li class="nav-item"><a href="{% url 'register' %}">Register</a></li>
+                    <li class="nav-item"><a href="{% url 'login' %}">Login</a></li>
+                    <li class="nav-item"><a href="{% url 'register' %}">Register</a></li>
                 {% endif %}
 
             </ul>

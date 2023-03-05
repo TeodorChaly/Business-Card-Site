@@ -3,6 +3,7 @@ from django.views.generic import ListView, DetailView
 from django.views.generic.base import View
 from .models import Project, QuestionsAnswer, Reviews
 from .forms import AddReviewForm
+from django.contrib import messages
 
 class Project_view(ListView):
     model = Project
@@ -25,20 +26,25 @@ class Question_Answer(View):
 
 class Reviews_view(View):
     def get(self, request):
-        reviews = Reviews.objects.all()
+        reviews = Reviews.objects.order_by("-id")[:3]
         return render(request, "posts/reviews.html", {"reviews":reviews})
 
 class Add_review_view(View):
     def get(self, request):
+        if not request.user.is_authenticated:
+            messages.error(request, 'You must be logged in to add a review.')
+            return redirect('login')
         form = AddReviewForm()
-        return render(request, "posts/form_add_review.html", {"form":form})
+        context = {'form': form}
+        return render(request, "posts/form_add_review.html", context)
 
     def post(self, request):
         form = AddReviewForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('review_list')
-        return render(request, "posts/form_add_review.html", {"form":form})
+            return redirect("review_list")
+        return render(request, "posts/form_add_review.html", {"form": form})
+
 
 class Main_Page_view(View):
     def get(self, request):
