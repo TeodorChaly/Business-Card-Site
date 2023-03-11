@@ -1,0 +1,25 @@
+{%extends 'posts/base.html'%}
+{%load static%}
+{% block head%}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>FAQ</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Aldrich&amp;display=swap">
+{% endblock head%}
+{%block content%}
+
+    <section style="margin-right: 2%;margin-left: 2%;">
+        <div class="container">
+            <div class="row" style="padding-top: 28px;">
+                {% for question in question_answer%}
+                <div class="col-md-6">
+                    <h2>{{question.title}}</h2>
+                    <p>{{question.description}}</p>
+                </div>
+                {%endfor%}
+            </div>
+        </div>
+    </section>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+{%endblock%}

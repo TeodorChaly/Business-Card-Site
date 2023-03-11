@@ -22,7 +22,7 @@ class Project_Detail(DetailView):
 class Question_Answer(View):
     def get(self, request):
         quest_answr = QuestionsAnswer.objects.all()
-        return render(request, "posts/question_answer.html", {"question_answer":quest_answr})
+        return render(request, "posts/FAQ.html", {"question_answer":quest_answr})
 
 class Reviews_view(View):
     def get(self, request):
