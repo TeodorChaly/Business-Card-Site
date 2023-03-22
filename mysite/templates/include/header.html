@@ -1,9 +1,8 @@
 <nav class="navbar navbar-light navbar-expand-md d-md-flex justify-content-md-center" style="background: rgba(255,255,255,0.48);font-family: Aldrich, sans-serif;font-size: 18px;border-radius: 1px;border-bottom: 1px solid rgb(0,0,0);">
         {% with request.resolver_match.url_name as url_name %}
-            <div class="container"><a class="navbar-brand" href="#">Brand</a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="container"><a class="navbar-brand" href="{% url 'main_page' %}">Main page</a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse flex-fill justify-content-md-center justify-content-xxl-center" id="navcol-1">
                     <ul class="navbar-nav ms-ws/assets/bootstrap/js/bootstrapauto">
-                        <li class="nav-item"><a class="nav-link {% if url_name == 'main_page' %}active{% endif %}" href="{% url 'main_page' %}">Main page</a></li>
                         <li class="nav-item"><a class="nav-link {% if url_name == 'question_answer' %}active{% endif %}" href="{% url 'question_answer' %}">FAQ</a></li>
                         <li class="nav-item"><a class="nav-link {% if url_name == 'review_list' %}active{% endif %}" href="{% url 'review_list' %}">Reviews</a></li>
                         <li class="nav-item"><a class="nav-link {% if url_name == 'demos_list' %}active{% endif %}" href="{% url 'demos_list' %}">Demo</a></li>

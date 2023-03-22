@@ -1,20 +1,35 @@
 {%extends 'posts/base.html'%}
 {% load static %}
 
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+	<title>Projects_2.0</title>
+	<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Aldrich&amp;display=swap">
+</head>
+
 {% block content %}
+<body style="font-family: Aldrich, sans-serif;">
+<h1 style="text-align: center;">My projects list.</h1>
+<div class="col" style="margin-right: 3%;margin-left: 3%;">
+	<p style="margin-top: 20px;">Lorum impsum. Lorum impsum. Lorum impsum. Lorum impsum. Lorum impsum. Lorum impsum.
+		Lorum impsum. Lorum impsum. Lorum impsum. Lorum impsum. Lorum impsum. Lorum impsum. Lorum impsum. Lorum impsum.
+		Lorum impsum. Lorum impsum. Lorum impsum. Lorum impsum. Lorum impsum. Lorum impsum. Lorum impsum. Lorum impsum.
+		Lorum impsum. Lorum impsum. Lorum impsum. Lorum impsum. Lorum impsum. Lorum impsum. Lorum impsum. Lorum impsum.&nbsp;</p>
+</div>
+{% for project in project_list%}
+<div style="margin-right: 3%;margin-left: 3%;border-top-left-radius: 17px;border-top-right-radius: 17px;border-bottom-right-radius: 17px;border-bottom-left-radius: 17px;margin-top: 10px;border-style: solid;border-color: rgb(108,120,133);border-top-width: 4px;border-right-width: 1.5px;border-left-width: 1.5px;">
+	<div class="col" style="margin-top: 5px;margin-left: 2%;margin-right: 2%;margin-bottom: 13px;">
+		<h2><span style="color: rgb(0, 0, 0);">{{project.title}}</span></h2>
+		<p>{{project.text|safe}}</p>
+		<a href="{{ project.get_absolute_url }}">
+			<button class="btn btn-primary" type="button" style="background: rgb(135,145,160);">View more</button>
+		</a>
 
-    {% for project in project_list%}
-    <section style="height: auto;margin-top: 50px;">
-        <div>
-            <a href="{{ project.get_absolute_url }}">{{project.title}}</a>
-            <h2>{{project.title}}</h2>
-            <h5>{{project.text|safe}}</h5>
-            <a href="{{ project.get_absolute_url }}">
-                <button class="btn btn-primary" type="button">View more ...</button>
-            </a>
-
-        </div>
-    </section>
-    {% endfor %}
-    <script src="{% static 'assets/bootstrap/js/bootstrap.min.js'%}"></script>
-{% endblock content %}
+	</div>
+</div>
+{% endfor %}
+<script src="assets/bootstrap/js/bootstrap.min.js"></script>
+</body>
+{%endblock%}

@@ -1,27 +1,62 @@
 {%extends 'posts/base.html'%}
-{%load static%}
+{% load static %}
 
-
-{% block head%}
+{% block head %}
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
 	<title>{{project.title}}</title>
-	<link rel="stylesheet" href="{% static  '/assets/bootstrap/css/bootstrap.min.css'%}">
-{% endblock head%}
+	<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Aldrich&amp;display=swap">
+</head>
+{% endblock %}
 
-{%block info%}
-    <section style="height: auto;margin-top: 50px;">
+{% block content%}
+<body style="font-family: Aldrich, sans-serif;">
+<div class="col" style="margin-right: 3%;margin-left: 3%;margin-top: 20px;">
+	<div style="border-top-left-radius: 17px;border-bottom-right-radius: 17px;border-top-right-radius: 17px;border-bottom-left-radius: 17px;border-style: solid;border-color: rgb(108,120,133);border-top-width: 4px;">
+		<h1 style="text-align: center;margin-top: 15px;"><span style="color: rgb(0, 0, 0);">{{project.title}}</span>
+		</h1>
+		<div class="container" style="margin-top: 20px;margin-bottom: 10px;">
+			<div class="row">
+				<div class="col-md-6" style="margin-top: 10px;">
+					<div class="carousel slide" data-bs-ride="false" id="carousel-1">
+						<div class="carousel-inner">
+                            {% for img in project.projectimages_set.all %}
+                                <div class="carousel-item active"><img class="w-100 d-block" src="/media/{{img.image}}" alt="{{img.description}}"
+                                                                       style="border-top-right-radius: 15px;border-top-left-radius: 15px;border-bottom-right-radius: 15px;border-bottom-left-radius: 15px;">
+                                </div>
+                            {% endfor %}
 
-	<div></div>
-	<h1>{{project.title}}</h1>
-
-	<div >
-		<h3>{{project.text|safe}}</h3>
-		<h4>{{project.date}}</h4>
-		<h4>{{project.image}}</h4>
-		{% for img in project.projectimages_set.all %}
-			<img src="/media/{{img.image}}" alt="{{img.description}}" width="auto" height="256px"/>
-
-		{% endfor %}
-
+						</div>
+						<div><a class="carousel-control-prev" href="#carousel-1" role="button"
+						        data-bs-slide="prev"><span class="carousel-control-prev-icon"></span><span
+								class="visually-hidden">Previous</span></a><a class="carousel-control-next"
+						                                                      href="#carousel-1" role="button"
+						                                                      data-bs-slide="next"><span
+								class="carousel-control-next-icon"></span><span class="visually-hidden">Next</span></a>
+						</div>
+						<ol class="carousel-indicators">
+							<li data-bs-target="#carousel-1" data-bs-slide-to="0" class="active"></li>
+							<li data-bs-target="#carousel-1" data-bs-slide-to="1"></li>
+							<li data-bs-target="#carousel-1" data-bs-slide-to="2"></li>
+						</ol>
+					</div>
+				</div>
+				<div class="col-md-6" style="margin-top: 10px;">
+					<p>{{project.text|safe}}</p>
+					<p><span style="color: rgb(0, 0, 0);">{{project.date}}</span></p>
+				</div>
+			</div>
+		</div>
+		<div class="col" style="margin-bottom: 20px;text-align: center;">
+			<a href="{% url 'project_list' %}">
+				<button class="btn btn-primary" type="button" style="background: rgb(135,145,160);">Back to list
+				</button>
+			</a>
+		</div>
 	</div>
-    </section>
-{%endblock info%}
+</div>
+<script src="assets/bootstrap/js/bootstrap.min.js"></script>
+</body>
+{%endblock%}
