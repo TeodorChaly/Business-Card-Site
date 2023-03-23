@@ -45,6 +45,9 @@ class Add_review_view(View):
             return redirect("review_list")
         return render(request, "posts/form_add_review.html", {"form": form})
 
+class Contact_view(View):
+    def get(self, request):
+        return render(request, "posts/contact.html")
 
 class Main_Page_view(View):
     def get(self, request):
