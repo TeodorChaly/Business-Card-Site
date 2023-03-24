@@ -210,3 +210,4 @@ CKEDITOR_CONFIGS = {
 #     'django.contrib.auth.backends.ModelBackend',
 #     'allauth.account.auth_backends.AuthenticationBackend',
 # )
+APPEND_SLASH = False

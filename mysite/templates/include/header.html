@@ -8,7 +8,7 @@
                         <li class="nav-item"><a class="nav-link {% if url_name == 'demos_list' %}active{% endif %}" href="{% url 'demos_list' %}">Demo</a></li>
                         <li class="nav-item"><a class="nav-link {% if url_name == 'add_review' %}active{% endif %}" href="{% url 'add_review' %}">Add review</a></li>
                         <li class="nav-item"><a class="nav-link {% if url_name == 'project_list' %}active{% endif %}" href="{% url 'project_list' %}">Projects</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link {% if url_name == 'contact' %}active{% endif %}" href="{% url 'contact' %}">Contact</a></li>
                     </ul>
                     {% if user.is_authenticated %}
                     <ul class="navbar-nav d-xxl-flex ms-auto align-items-xxl-center">
