@@ -6,7 +6,6 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>FAQ</title>
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Aldrich&amp;display=swap">
 </head>
 {% endblock %}
@@ -17,15 +16,15 @@
         <div class="container">
             <div class="row" style="padding-top: 28px;">
                 {% for question in question_answer%}
-                <div class="col-md-6" style="border-top-left-radius: 17px;border-top-right-radius: 17px;border-bottom-right-radius: 17px;border-bottom-left-radius: 17px;margin-top: 5px;border-style: solid;border-color: rgb(108,120,133);border-top-width: 4px;border-top-color: rgb(106,119,132);border-right-width: 1.5px;border-left-width: 1.5px;">
+                <div class="col-md-6" style="border-top-left-radius: 17px;border-top-right-radius: 17px;border-bottom-right-radius: 17px;border-bottom-left-radius: 17px;margin-top: 5px;margin-bottom: 5px;border-style: solid;border-color: rgb(108,120,133);border-top-width: 4px;border-top-color: rgb(106,119,132);border-right-width: 1.5px;border-left-width: 1.5px;">
                     <h2 class="text-center" style="margin-top: 3px;">{{question.title}}</h2>
-                    <p>{{question.description}}</p>
+                    <p>{{question.description|safe}}</p>
                 </div>
                 {% endfor %}
             </div>
         </div>
     </section>
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="{%load static%} admin/js/bootstrap.min.js"></script>
 </body>
 
 {% endblock %}

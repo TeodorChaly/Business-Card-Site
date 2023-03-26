@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Buisness_card_2.0</title>
+    <title>Teodors Chaly business site</title>
 </head>
 {% endblock head%}
 {%block info%}
@@ -33,9 +33,9 @@
                     <p style="font-size: 16px;"><span style="color: rgb(32, 33, 36);">Do you want to test my projects?&nbsp;Here is a way! You can run a few projects that create&nbsp;</span>right here on my website. Just go to demos and run!<span style="color: rgb(32, 33, 36);">&nbsp;</span></p><a href="#"><span style="color: var(--bs-link-hover-color);">Run it now</span></a>
                 </div>
                 <div class="col" style="text-align: left;">
-                    <div class="d-flex flex-row justify-content-center" style="text-align: center;"><i class="far fa-folder text-center d-md-flex align-items-md-center"></i><a href="#" style="margin-left: 4px;">Run calcularor</a></div>
-                    <div class="d-flex flex-row justify-content-center" style="text-align: center;"><i class="far fa-folder d-md-flex align-items-md-center"></i><a href="#" style="margin-left: 4px;">Run calcularor</a></div>
-                    <div class="d-flex flex-row justify-content-center" style="text-align: center;"><i class="far fa-folder d-md-flex align-items-md-center"></i><a href="#" style="margin-left: 4px;">Run calcularor</a></div>
+                    <div class="d-flex flex-row justify-content-center" style="text-align: center;"><i class="far fa-folder text-center d-md-flex align-items-md-center"></i><a href="#" style="margin-left: 4px;">Run scraper</a></div>
+                    <div class="d-flex flex-row justify-content-center" style="text-align: center;"><i class="far fa-folder d-md-flex align-items-md-center"></i><a href="#" style="margin-left: 4px;">Run calculator</a></div>
+                    <div class="d-flex flex-row justify-content-center" style="text-align: center;"><i class="far fa-folder d-md-flex align-items-md-center"></i><a href="#" style="margin-left: 4px;">Run some-other projects</a></div>
                 </div>
             </div>
         </div>
@@ -44,30 +44,12 @@
         <h2 data-aos="fade-left" data-aos-duration="650" style="text-align: center;margin-top: 20px;">Other projects / Offers</h2>
         <div class="container">
             <div class="row">
+                {% for project in content_one%}
                 <div class="col-md-6" style="text-align: center;margin-top: 15px;">
-                    <h4>Telegram bot</h4>
-                    <p style="text-align: center;margin-right: 10%;margin-left: 10%;">Bots are&nbsp;<span style="text-decoration: underline;">Telegram accounts</span>&nbsp;operated by&nbsp;<a href="https://en.wikipedia.org/wiki/Telegram_(software)"><span style="color: var(--bs-link-color);">programs</span></a>. They can respond to messages or&nbsp;mentions, can be invited into groups, and can be integrated with&nbsp;<em>other programs...</em></p><a class="d-sm-flex justify-content-sm-center" href="#">Run it now</a>
+                    <h4>{{project.title}}</h4>
+                    <p style="text-align: center;margin-right: 10%;margin-left: 10%;">{{project.text|safe}}</p><a class="d-sm-flex justify-content-sm-center" href="#">Run it now</a>
                 </div>
-                <div class="col-md-6" style="text-align: center;margin-top: 15px;">
-                    <h4>Scrape</h4>
-                    <p style="text-align: center;margin-right: 10%;margin-left: 10%;"><span style="color: rgb(32, 33, 36);">Do you want to test my projects?</span><br><span style="color: rgb(32, 33, 36);">Here is a way! You can run a few projects that create&nbsp;</span>right here on my website. Just go to demos and run!<span style="color: rgb(32, 33, 36);">&nbsp;</span></p><a class="d-sm-flex justify-content-sm-center" href="#">Run it now</a>
-                </div>
-                <div class="col-md-6" style="text-align: center;margin-top: 30px;">
-                    <div>
-                        <h4>Django site</h4>
-                        <div>
-                            <p style="text-align: center;margin-right: 10%;margin-left: 10%;">Bots are&nbsp;<span style="text-decoration: underline;">Telegram accounts</span>&nbsp;operated by&nbsp;<a href="https://en.wikipedia.org/wiki/Telegram_(software)"><span style="color: var(--bs-link-color);">programs</span></a>. They can respond to messages or&nbsp;mentions, can be invited into groups, and can be efplwef iwefje fwioefj oiwefjiowefj oweijfiofjweifjiwef with&nbsp;<em>other programs...</em></p>
-                        </div><a class="d-sm-flex justify-content-sm-center" href="#">Run it now</a>
-                    </div>
-                </div>
-                <div class="col-md-6" style="text-align: center;margin-top: 30px;">
-                    <div>
-                        <h4>Django site</h4>
-                        <div>
-                            <p style="text-align: center;margin-right: 10%;margin-left: 10%;">Bots are&nbsp;<span style="text-decoration: underline;">Telegram accounts</span>&nbsp;operated by&nbsp;<a href="https://en.wikipedia.org/wiki/Telegram_(software)"><span style="color: var(--bs-link-color);">programs</span></a>. They can respond to messages or&nbsp;mentions, can be invited into groups, and can be efplwef iwefje fwioefj oiwefjiowefj oweijfiofjweifjiwef with&nbsp;<em>other programs...</em></p>
-                        </div><a class="d-sm-flex justify-content-sm-center" href="#">Run it now</a>
-                    </div>
-                </div>
+                {% endfor %}
             </div>
         </div><a class="d-xl-flex justify-content-xl-center align-items-xl-center" href="#" target="_blank" style="margin-top: 10px;font-size: 24px;text-align: center;">To view more project/offers.</a>
     </section>
@@ -75,31 +57,24 @@
         <div>
             <h2 data-aos="fade-left" data-aos-duration="650" style="text-align: center;margin-top: 20px;">FAQ and Reviews</h2>
             <div style="margin-right: 10%;margin-left: 10%;margin-top: 29px;text-align: center;">
-                <div class="text-center d-flex d-md-flex flex-column justify-content-md-center align-items-md-center" style="margin-right: 20%;margin-left: 20%;">
-                    <p style="font-weight: bold;">Answer</p>
-                    <p style="text-align: center;"><span style="color: rgb(32, 33, 36);">S'ome question that you wouldnt read but i will leave it any more</span></p>
-                </div>
-                <div class="text-center d-flex d-md-flex flex-column justify-content-md-center align-items-md-center" style="margin-right: 20%;margin-left: 20%;margin-top: 5px;">
-                    <p style="color: rgb(0,0,0);font-weight: bold;">Another questioin</p>
-                    <p style="text-align: center;"><span style="color: rgb(32, 33, 36);">S'ome question that you wouldnt read but i will leave it any more</span></p>
-                </div>
-                <div class="text-center d-flex d-md-flex flex-column justify-content-md-center align-items-md-center" style="margin-right: 20%;margin-left: 20%;margin-top: 5px;">
-                    <p style="color: rgb(0,0,0);font-weight: bold;">Another questioin</p>
-                    <p style="text-align: center;"><span style="color: rgb(32, 33, 36);">S'ome question that you wouldnt read but i will leave it any more</span></p>
-                </div><a href="#">View more</a>
+                {% for question_answer in content_two%}
+                    <div class="text-center d-flex d-md-flex flex-column justify-content-md-center align-items-md-center" style="margin-right: 20%;margin-left: 20%;">
+                        <p style="font-weight: bold;">{{ question_answer.title }}</p>
+                        <p style="text-align: center;"><span style="color: rgb(32, 33, 36);">{{ question_answer.description|safe }}</span></p>
+                    </div>
+                {% endfor %}
             </div>
         </div>
         <div>
             <h2 data-aos="fade-left" data-aos-duration="650" style="text-align: center;margin-top: 20px;"><span style="color: rgb(33, 37, 41);">Reviews</span></h2>
             <div style="margin-right: 25%;margin-left: 25%;margin-top: 29px;text-align: center;">
+                {% for review in content_three%}
                 <div class="text-center d-flex d-md-flex flex-column justify-content-md-center align-items-md-center" style="margin-right: 20%;margin-left: 20%;">
-                    <p>Question</p>
-                    <p style="text-align: center;"><span style="color: rgb(32, 33, 36);">Answear</span></p>
+                    <p>{{review.name|safe}}</p>
+                    <p style="text-align: center;"><span style="color: rgb(32, 33, 36);">{{review.text|safe}}</span></p>
                 </div>
-                <div class="text-center d-flex d-md-flex flex-column justify-content-md-center align-items-md-center" style="margin-right: 20%;margin-left: 20%;margin-top: 5px;">
-                    <p style="color: rgb(0,0,0);">Question</p>
-                    <p style="text-align: center;"><span style="color: rgb(32, 33, 36);">Answear</span></p>
-                </div><a href="#">View more</a>
+                {% endfor %}
+                <a href="#">View more</a>
             </div>
         </div>
     </section>

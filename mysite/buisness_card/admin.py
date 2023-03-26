@@ -11,6 +11,13 @@ class ProjectAdminForm(forms.ModelForm):
         model = Project
         fields = '__all__'
 
+class QuestionAdminForm(forms.ModelForm):
+    description = forms.CharField(widget=CKEditorUploadingWidget())
+
+    class Meta:
+        model = QuestionsAnswer
+        fields = '__all__'
+
 
 @admin.register(Project)
 class ProjectAdmin(admin.ModelAdmin):
@@ -24,6 +31,7 @@ class ProjectAdmin(admin.ModelAdmin):
 class QuestionsAnswerAdmin(admin.ModelAdmin):
     list_display = ("id","title")
     list_display_links = ("id","title")
+    form = QuestionAdminForm
 
 @admin.register(Reviews)
 class ReviewsAdmin(admin.ModelAdmin):
