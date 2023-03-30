@@ -1,19 +1,38 @@
-{% extends 'base.html' %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	{% extends 'base.html' %}
 
-{% block content %}
-    <section style="height: auto;margin-top: 50px;">
+	{% block content %}
+	    <section style="height: auto;margin-top: 50px;">
 
-    <h1>Run Scraping</h1>
-    {% if message %}
-        <p>{{ message }}</p>
-    {% endif %}
-    <form method="POST">
-        {% csrf_token %}
-        <input type="text" name="input_text" placeholder="Enter Text">
-        <button type="submit">Run Scraping</button>
-    </form>
-    {% if result %}
-        <p>{{ result }}</p>
-    {% endif %}
-    </section>
-{% endblock %}
+	    <h1>Run Scraping</h1>
+	    {% if message %}
+	        <p>{{ message }}</p>
+	    {% endif %}
+	    <form method="POST">
+	        {% csrf_token %}
+	        <input type="text" name="input_text" placeholder="Enter Text">
+	        <button type="submit">Run Scraping</button>
+	    </form>
+	    {% if query %}
+            	<h1>Search Results for "{{ query }}"</h1>
+                <p>{{ result_conent }}</p>
+                {% if list_of_site %}
+                    <h2>List of Sites</h2>
+                    <ul>
+                    {% for title, link in list_of_site.items %}
+                        <li><a href="{{ link }}">{{ title }}</a></li>
+                    {% endfor %}
+                    </ul>
+                {% else %}
+                    <p>No results found.</p>
+                {% endif %}
+	    {% endif %}
+	    </section>
+	{% endblock %}
+</body>
+</html>
