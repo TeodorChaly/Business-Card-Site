@@ -13,8 +13,9 @@
 {% block content%}
 <body style="font-family: Aldrich, sans-serif;">
     <section style="margin-right: 2%;margin-left: 2%;">
+        <h1 style="text-align: center; margin-top: 3px;">Frequently Asked Questions</h1>
         <div class="container">
-            <div class="row" style="padding-top: 28px;">
+            <div class="row" style="padding-top: 10px;">
                 {% for question in question_answer%}
                 <div class="col-md-6" style="border-top-left-radius: 17px;border-top-right-radius: 17px;border-bottom-right-radius: 17px;border-bottom-left-radius: 17px;margin-top: 5px;margin-bottom: 5px;border-style: solid;border-color: rgb(108,120,133);border-top-width: 4px;border-top-color: rgb(106,119,132);border-right-width: 1.5px;border-left-width: 1.5px;">
                     <h2 class="text-center" style="margin-top: 3px;">{{question.title}}</h2>

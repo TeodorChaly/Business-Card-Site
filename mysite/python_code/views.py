@@ -1,9 +1,10 @@
 from django.shortcuts import render
 from django.views import View
-from django.views.decorators.csrf import csrf_exempt
+from django.views.decorators.csrf import csrf_exempt, csrf_protect
 from django.views.generic import ListView
 
 from . import scraping
+from .ask_ai import ask_question
 from .calculator import calculator_res
 
 
@@ -31,6 +32,17 @@ def run_calculator(request):
         return render(request, 'demos/run_calculator.html', context)
     else:
         return render(request, 'demos/run_calculator.html')
+
+@csrf_exempt
+def run_ai_bot(request):
+    result= None
+    if request.method == 'POST':
+        input_text = request.POST.get('input_text', '')
+        result = ask_question(input_text)
+
+    return render(request, 'demos/run_askAI.html',
+                  {"result":result})
+
 
 
 class Demos_view(View):

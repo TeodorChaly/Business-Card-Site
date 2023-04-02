@@ -1,17 +1,17 @@
 import openai
 
-def ask_question():
+def ask_question(promt):
     API_KEY = "" # API Key
     openai.api_key = API_KEY
     try:
         response = openai.ChatCompletion.create(
             model="gpt-3.5-turbo",
             messages=[
-                {"role": "system", "content": "You are a chatbot"},
-                {"role": "user", "content": "Why should DevOps engineer learn kubernetes?"},
+                # {"role": "system", "content": "You are a chatbot"},
+                {"role": "user", "content": f"{promt}"},
             ]
         )
-        print(response)
+        return response["choices"][0]["message"]["content"]
     except Exception as a:
-        print("Problem with your prompt", a)
-ask_question()
+        return "Error while connecting"
+ask_question("Say ony one phrase: 'Hello world'")

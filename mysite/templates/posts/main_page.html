@@ -12,12 +12,16 @@
 <body>
     <section style="font-family: Aldrich, sans-serif;margin-right: 1%;margin-left: 3%;">
         <div class="container">
-            <h1 style="text-align: center;">About me</h1>
-            <div class="row">
+            <h1 style="text-align: center;margin-top: 10px;">About me</h1>
+            <div class="row" style="margin-top: 30px;">
                 <div class="col-md-6" style="text-align: center;"><img src="{% static 'admin/img/photo_2022-09-25_14.33.24.jpeg' %}" style="height: 389px;"></div>
                 <div class="col-md-6">
-                    <h1>Info</h1>
-                    <p>Lorum ispum. Lorum ispum. Lorum ispum. Lorum ispum. Lorum ispum. Lorum ispum. Lorum ispum. Lorum ispum. Lorum ispum. Lorum ispum. Lorum ispum. Lorum ispum. Lorum ispum. Lorm ispum. Lorum ispum. Lorum ispum.&nbsp;</p><a href="{% url 'contact' %}">Link</a>
+                    <h1 style="text-align: center;">Info</h1>
+
+            <p style="text-align: center;">Hello, I'm excited to introduce myself as a seasoned programmer with a wealth of experience in software development. I pride myself on being able to write code for any project, regardless of its complexity or scale.</p>
+            <p style="text-align: center;">One of my specialties is Python, a versatile and powerful programming language that I use extensively in my work. I'm particularly skilled in web scraping, using Python to gather and analyze data from websites quickly and efficiently. I'm also an expert in web development, with a deep understanding of Django, a popular Python web framework used by developers around the world.</p>
+            <p style="text-align: center;">Over the years, I've worked on a diverse range of projects, from small-scale applications to large enterprise-level systems. I bring a wealth of knowledge and experience to every project, working tirelessly to deliver high-quality, robust code that meets my clients' needs. I look forward to working with you and bringing your ideas to life through the power of programming.</p>
+                    <p style="text-align: center;"> <a href="{% url 'contact' %}">Link</a></p>
                 </div>
             </div>
         </div>
@@ -29,12 +33,16 @@
             </div>
             <div class="row">
                 <div class="col-md-6" style="text-align: center;">
+                    <h4 style="text-align: center;" >What is this?</h4>
                     <p style="font-size: 16px;"><span style="color: rgb(32, 33, 36);">Explore the power of Python with our interactive demos. You don't need any coding experience to try them out yourself on my site! From web scraping to automation, our demos showcase the possibilities of Python programming in a fun and engaging way. Give them a try and see what you can accomplish!</span>right here on my website. Just go to demos and run!<span style="color: rgb(32, 33, 36);">&nbsp;</span></p><a href="#"><span style="color: var(--bs-link-hover-color);">Run it now</span></a>
                 </div>
                 <div class="col" style="text-align: left;">
-                    <div class="d-flex flex-row justify-content-center" style="text-align: center;"><i class="far fa-folder text-center d-md-flex align-items-md-center"></i><a href="#" style="margin-left: 4px;">Run scraper</a></div>
-                    <div class="d-flex flex-row justify-content-center" style="text-align: center;"><i class="far fa-folder d-md-flex align-items-md-center"></i><a href="#" style="margin-left: 4px;">Run calculator</a></div>
-                    <div class="d-flex flex-row justify-content-center" style="text-align: center;"><i class="far fa-folder d-md-flex align-items-md-center"></i><a href="#" style="margin-left: 4px;">Run some-other projects</a></div>
+                    <h4 style="text-align: center;" >Popular demos:</h4>
+
+                    <div class="d-flex flex-row justify-content-center" style="text-align: center;"><i class="far fa-folder text-center d-md-flex align-items-md-center"></i><a href="{% url 'run_scraping' %}" style="margin-left: 4px;">Run scraper</a></div>
+                    <div class="d-flex flex-row justify-content-center" style="text-align: center;"><i class="far fa-folder d-md-flex align-items-md-center"></i><a href="{% url 'run_calculator' %}" style="margin-left: 4px;">Run calculator</a></div>
+                    <div class="d-flex flex-row justify-content-center" style="text-align: center;"><i class="far fa-folder d-md-flex align-items-md-center"></i><a href="{% url 'run_ai_bot' %}" style="margin-left: 4px;">Run AI bot</a></div>
+                    <div class="d-flex flex-row justify-content-center" style="text-align: center;margin-top: 20px;"><a href="{% url 'demos_list' %}" style="margin-left: 4px;">List of other demos</a></div>
                 </div>
             </div>
         </div>
