@@ -1,7 +1,7 @@
 import openai
 
 def ask_question(promt):
-    API_KEY = "" # API Key
+    API_KEY = ""  # API Key
     openai.api_key = API_KEY
     try:
         response = openai.ChatCompletion.create(
@@ -14,4 +14,3 @@ def ask_question(promt):
         return response["choices"][0]["message"]["content"]
     except Exception as a:
         return "Error while connecting"
-ask_question("Say ony one phrase: 'Hello world'")
