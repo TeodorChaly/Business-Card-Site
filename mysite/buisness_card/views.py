@@ -26,7 +26,7 @@ class Question_Answer(View):
 
 class Reviews_view(View):
     def get(self, request):
-        reviews = Reviews.objects.order_by("-id")[:3]
+        reviews = Reviews.objects.order_by("-id")
         return render(request, "posts/reviews.html", {"reviews":reviews})
 
 class Add_review_view(View):

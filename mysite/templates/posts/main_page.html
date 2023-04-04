@@ -76,7 +76,7 @@
 				<h4 style="text-align: center;">What is this?</h4>
 				<p style="font-size: 16px;"><span style="color: rgb(32, 33, 36);">Explore the power of Python with our interactive demos. You don't need any coding experience to try them out yourself on my site! From web scraping to automation, our demos showcase the possibilities of Python programming in a fun and engaging way. Give them a try and see what you can accomplish!</span>right
 					here on my website. Just go to demos and run!<span style="color: rgb(32, 33, 36);">&nbsp;</span></p>
-				<a href="#"><span style="color: var(--bs-link-hover-color);">Run it now</span></a>
+				<a href="{% url 'demos_list' %}"><span style="color: var(--bs-link-hover-color);">Run it now</span></a>
 			</div>
 			<div class="col" style="margin-top: 35px;" >
 				<h4 style="text-align: center;" >Popular demos:</h4>
@@ -108,13 +108,13 @@
 			<div class="col-md-6" style="text-align: center;margin-top: 15px;">
 				<h4>{{project.title}}</h4>
 				<p style="text-align: center;margin-right: 10%;margin-left: 10%;">{{project.text|safe}}</p><a
-					class="d-sm-flex justify-content-sm-center" href="#">Run it now</a>
+					class="d-sm-flex justify-content-sm-center" href="{{ project.get_absolute_url }}">More</a>
 			</div>
 			{% endfor %}
 		</div>
 	</div>
-	<a class="d-xl-flex justify-content-xl-center align-items-xl-center" href="#" target="_blank"
-	   style="margin-top: 10px;font-size: 24px;text-align: center;">To view more project/offers.</a>
+	<div style="text-align: center;margin-top: 20px;margin-bottom: 20px"><a class="d-xl-flex justify-content-xl-center align-items-xl-center" href="{% url 'project_list'%}"
+	   style="margin-top: 10px;font-size: 24px;text-align: center;">To view more project/offers.</a></div>
 </section>
 <section
 		style="margin-top: 10px;margin-right: 1%;margin-left: 3%;border-top-width: 1px;border-top-style: solid;color: rgb(0,0,0);font-family: Aldrich, sans-serif;">
@@ -132,8 +132,11 @@
 			{% endfor %}
 		</div>
 	</div>
+    <div>
+        <a class="d-flex flex-row justify-content-center" href="{% url 'question_answer'%}">View more.</a>
+    </div>
 	<div>
-		<h2 data-aos="fade-left" data-aos-duration="650" style="text-align: center;margin-top: 20px;"><span
+		<h2 data-aos="fade-left" data-aos-duration="650" style="text-align: center;margin-top: 40px;"><span
 				style="color: rgb(33, 37, 41);">Reviews</span></h2>
 		<div style="margin-right: 25%;margin-left: 25%;margin-top: 29px;text-align: center;">
 			{% for review in content_three%}
@@ -143,11 +146,16 @@
 				<p style="text-align: center;"><span style="color: rgb(32, 33, 36);">{{review.text|safe}}</span></p>
 			</div>
 			{% endfor %}
-			<a href="#">View more</a>
+            <div style="margin-bottom: 40px;">
+                <a href="{% url 'review_list'%}">View more</a>
+            </div>
 		</div>
 	</div>
 </section>
-<footer class="text-center bg-dark" style="width: 100%;margin-top: 13px;background: rgb(0,0,0);">
+<footer class="text-center bg-dark" style="width: 100%;margin-top: 13px;background: rgb(0,0,0);position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;">
 	<div class="container text-white py-4 py-lg-5" style="background: #000000;">
 		<ul class="list-inline">
 			<li class="list-inline-item me-4"><a class="link-light" href="#">Web design</a></li>
