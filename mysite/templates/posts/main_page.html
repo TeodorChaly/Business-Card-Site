@@ -108,14 +108,14 @@
 			{% for project in content_one%}
 			<div class="col-md-6" style="text-align: center;margin-top: 15px;">
 				<h4>{{project.title}}</h4>
-				<p style="text-align: center;margin-right: 10%;margin-left: 10%;">{{project.text|safe}}</p><a
+				<p style="text-align: center;margin-right: 10%;margin-left: 10%;">{{project.text|safe|slice:":200"}}...</p><a
 					class="d-sm-flex justify-content-sm-center" href="{{ project.get_absolute_url }}">More</a>
 			</div>
 			{% endfor %}
 		</div>
 	</div>
 	<div style="text-align: center;margin-top: 20px;margin-bottom: 20px"><a
-			class="d-xl-flex justify-content-xl-center align-items-xl-center" href="{% url 'project_list'%}"
+			class="d-xl-flex justify-content-xl-center align-items-xl-center" href="{% url 'portfolio'%}"
 			style="margin-top: 10px;font-size: 24px;text-align: center;">To view more project/offers.</a></div>
 </section>
 <section

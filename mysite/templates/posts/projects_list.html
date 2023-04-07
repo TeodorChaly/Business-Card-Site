@@ -18,7 +18,8 @@
 <div style="margin-right: 3%;margin-left: 3%;border-top-left-radius: 17px;border-top-right-radius: 17px;border-bottom-right-radius: 17px;border-bottom-left-radius: 17px;margin-top: 10px;border-style: solid;border-color: rgb(108,120,133);border-top-width: 4px;border-right-width: 1.5px;border-left-width: 1.5px;">
 	<div class="col" style="margin-top: 5px;margin-left: 2%;margin-right: 2%;margin-bottom: 13px;">
 		<h2><span style="color: rgb(0, 0, 0);">{{project.title}}</span></h2>
-		<p>{{project.text|safe}}</p>
+		<p>{{project.text|safe|slice:":400"}}
+			...</p>
 		<a href="{{ project.get_absolute_url }}">
 			<button class="btn btn-primary" type="button" style="background: rgb(135,145,160);">View more</button>
 		</a>
