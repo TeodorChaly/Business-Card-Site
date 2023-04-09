@@ -1,14 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'base.html' %}
 
+{% block head %}
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-	<title>Log_out</title>
+	<title>Log out</title>
 	<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Aldrich&amp;display=swap">
 </head>
-{% extends 'base.html' %}
+{% endblock %}
 
 {% block content %}
 <body>
@@ -21,9 +21,9 @@
 		succsesufoul loged out. Now you can log in.</p>
 	<div style="text-align: center;margin-bottom: 15px;">
 		<a href="{% url 'main_page'%}">
-		<button class="btn btn-primary" type="button"
-		        style="text-align: center;background: rgb(135,145,160);border-width: 0px;">Go to Main page
-		</button>
+			<button class="btn btn-primary" type="button"
+			        style="text-align: center;background: rgb(135,145,160);border-width: 0px;">Go to Main page
+			</button>
 		</a>
 	</div>
 </div>

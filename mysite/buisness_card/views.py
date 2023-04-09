@@ -23,7 +23,7 @@ class Project_Detail(DetailView):
 
 class Question_Answer(View):
     def get(self, request):
-        quest_answr = QuestionsAnswer.objects.all()
+        quest_answr = QuestionsAnswer.objects.order_by("position","-id")
         return render(request, "posts/FAQ.html", {"question_answer":quest_answr})
 
 class Reviews_view(View):
@@ -55,7 +55,7 @@ class Contact_view(View):
 class Main_Page_view(View):
     def get(self, request):
         content_one = Project.objects.filter(draft=False).order_by("-position", "-id")[:4]
-        content_two = QuestionsAnswer.objects.order_by("-id")[:3]
+        content_two = QuestionsAnswer.objects.order_by("-position","-id")[:3]
         content_three = Reviews.objects.order_by("-id")[:3]
         return render(request, "posts/main_page.html", {"content_one":content_one,"content_two":content_two,"content_three":content_three })
 

@@ -32,7 +32,7 @@ class ProjectAdmin(admin.ModelAdmin):
 
 @admin.register(QuestionsAnswer)
 class QuestionsAnswerAdmin(admin.ModelAdmin):
-    list_display = ("id", "title")
+    list_display = ("id", "title", "position")
     list_display_links = ("id", "title")
     form = QuestionAdminForm
 

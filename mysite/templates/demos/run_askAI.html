@@ -1,33 +1,36 @@
-<!DOCTYPE html>
-<html>
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
 <head>
-	<title></title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+	<title>Run AI bot | Ask question to AI</title>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Aldrich&amp;display=swap">
 </head>
-<body>
-	{% extends 'base.html' %}
-	{% load static %}
+{%endblock%}
 
-	{% block content %}
-	    <section style="height: auto;margin-top: 50px;">
+{% block content %}
+<section style="height: auto;margin-top: 50px;">
 
-	    <h1>Run AI Bot</h1>
-	    {% if message %}
-	        <p>{{ message }}</p>
-	    {% endif %}
-	    <form method="POST" id="ai-form">
-	        {% csrf_token %}
-	        <input type="text" name="input_text" placeholder="Enter Text">
-	        <button type="submit">Run AI</button>
-	    </form>
+	<h1>Run AI Bot</h1>
+	{% if message %}
+	<p>{{ message }}</p>
+	{% endif %}
+	<form method="POST" id="ai-form">
+		{% csrf_token %}
+		<input type="text" name="input_text" placeholder="Enter Text">
+		<button type="submit">Run AI</button>
+	</form>
 
-		    <h2>{{result}}</h2>
-	        <p></p>
+	<h2>{{result}}</h2>
+	<p></p>
 
 
-	    </section>
-	{% endblock %}
+</section>
+{% endblock %}
 
-	<script>
+<script>
 	    var form = document.getElementById("ai-form");
 	    form.addEventListener("submit", function(event) {
 	        event.preventDefault();
@@ -53,6 +56,5 @@
 	        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 	        xhr.send("input_text=" + encodeURIComponent(input_text));
 	    });
-	</script>
-</body>
-</html>
+
+</script>

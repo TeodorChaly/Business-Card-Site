@@ -30,6 +30,7 @@ class ProjectImages(models.Model):
 class QuestionsAnswer(models.Model):
     title = models.CharField(max_length=100)
     description = models.TextField("Text Area")
+    position = models.IntegerField(default=0)
 
 class Reviews(models.Model):
     email = models.EmailField()
