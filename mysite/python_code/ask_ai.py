@@ -1,7 +1,7 @@
 import openai
 
 def ask_question(promt):
-    API_KEY = ""  # API Key
+    API_KEY = "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"  # API Key
     openai.api_key = API_KEY
     try:
         response = openai.ChatCompletion.create(
