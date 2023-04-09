@@ -6,7 +6,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
 	<title>{{project.title}}</title>
-	<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="{% static 'admin/css/bootstrap.min.css'%}">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Aldrich&amp;display=swap">
 </head>
 {% endblock %}
@@ -22,11 +22,12 @@
 				<div class="col-md-6" style="margin-top: 10px;">
 					<div class="carousel slide" data-bs-ride="false" id="carousel-1">
 						<div class="carousel-inner">
-                            {% for img in project.projectimages_set.all %}
-                                <div class="carousel-item active"><img class="w-100 d-block" src="/media/{{img.image}}" alt="{{img.description}}"
-                                                                       style="border-top-right-radius: 15px;border-top-left-radius: 15px;border-bottom-right-radius: 15px;border-bottom-left-radius: 15px;">
-                                </div>
-                            {% endfor %}
+							{% for img in project.projectimages_set.all %}
+							<div class="carousel-item active"><img class="w-100 d-block" src="/media/{{img.image}}"
+							                                       alt="{{img.description}}"
+							                                       style="border-top-right-radius: 15px;border-top-left-radius: 15px;border-bottom-right-radius: 15px;border-bottom-left-radius: 15px;">
+							</div>
+							{% endfor %}
 
 						</div>
 						<div><a class="carousel-control-prev" href="#carousel-1" role="button"
@@ -36,11 +37,17 @@
 						                                                      data-bs-slide="next"><span
 								class="carousel-control-next-icon"></span><span class="visually-hidden">Next</span></a>
 						</div>
+						{% if project.projectimages_set.exists %}
 						<ol class="carousel-indicators">
-							<li data-bs-target="#carousel-1" data-bs-slide-to="0" class="active"></li>
-							<li data-bs-target="#carousel-1" data-bs-slide-to="1"></li>
-							<li data-bs-target="#carousel-1" data-bs-slide-to="2"></li>
+							{% for img in project.projectimages_set.all %}
+							<li data-bs-target="#carousel-1" data-bs-slide-to="{{ forloop.counter0 }}"
+							    class="{% if forloop.first %}active{% endif %}"></li>
+							{% endfor %}
 						</ol>
+						{% else %}
+						<h3>No image</h3>
+						{% endif %}
+
 					</div>
 				</div>
 				<div class="col-md-6" style="margin-top: 10px;">
@@ -57,6 +64,6 @@
 		</div>
 	</div>
 </div>
-<script src="assets/bootstrap/js/bootstrap.min.js"></script>
+<script src="{% static 'admin/js/bootstrap.min.js'%}"></script>
 </body>
 {%endblock%}

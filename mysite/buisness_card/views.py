@@ -4,6 +4,8 @@ from django.views.generic.base import View
 from .models import Project, QuestionsAnswer, Reviews
 from .forms import AddReviewForm
 from django.contrib import messages
+from django.http import HttpResponseNotFound
+
 
 class Project_view(ListView):
     model = Project
@@ -49,11 +51,17 @@ class Contact_view(View):
     def get(self, request):
         return render(request, "posts/contact.html")
 
+
 class Main_Page_view(View):
     def get(self, request):
-        content_one = Project.objects.order_by("-id")[:4]
+        content_one = Project.objects.filter(draft=False).order_by("-position", "-id")[:4]
         content_two = QuestionsAnswer.objects.order_by("-id")[:3]
         content_three = Reviews.objects.order_by("-id")[:3]
         return render(request, "posts/main_page.html", {"content_one":content_one,"content_two":content_two,"content_three":content_three })
+
+
+def Page_not_found(request, exception):
+    return HttpResponseNotFound(render(request, 'posts/page_not_found.html'))
+
 
 

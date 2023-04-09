@@ -23,9 +23,9 @@ class QuestionAdminForm(forms.ModelForm):
 
 @admin.register(Project)
 class ProjectAdmin(admin.ModelAdmin):
-    list_display = ("id", "title", "date", "url", "draft")
+    list_display = ("id", "title", "date", "url", "draft", "position")
     list_display_links = ("title",)
-    list_filter = ("date",)
+    list_filter = ("position","date",)
     search_fields = ("id", "title", "url")
     form = ProjectAdminForm
 
